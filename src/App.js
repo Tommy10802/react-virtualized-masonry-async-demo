@@ -56,7 +56,6 @@ class App extends Component {
         spacer: gut
       })
       this.masRef.recomputeCellPositions()
-      console.log('computed')
     }
   }
 
