@@ -4,5 +4,14 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const width = document.documentElement.clientWidth
+const height = document.documentElement.clientHeight
+
+const defaultProps = {
+  width,
+  height,
+  rows: 3,
+  gut: 25
+}
+ReactDOM.render(<App {...defaultProps} />, document.getElementById('root'));
 registerServiceWorker();
