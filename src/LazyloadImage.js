@@ -14,7 +14,6 @@ class LazyloadImage extends Component {
     defaultHeight: PropTypes.number.isRequired,
     fixedWidth: PropTypes.bool
   }
-  img = null
 
   constructor (props) {
     super(props)
@@ -88,7 +87,7 @@ class LazyloadImage extends Component {
     const { src } = this.state
     if (src === propsSrc && WidthPool[src] && HeightPool[src]) {
       return {
-        width: WidthPool[src],
+        width: fixedWidth ? defaultWidth : WidthPool[src],
         height: fixedWidth ? defaultWidth * HeightPool[src] / WidthPool[src] : HeightPool[src],
         backgroundImage: `url(${src})`,
         backgroundSize: 'cover'
