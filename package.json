@@ -2,7 +2,6 @@
   "name": "react-virtualized-masonry-async-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/chux0519/react-virtualized-masonry-async-demo",
   "dependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
