@@ -1,7 +1,7 @@
 # React-virtualized-masonry-async-demo
 > ref to https://github.com/bvaughn/react-virtualized/issues/723
 
-[online demo](http://chuxdesign.com/playground/react-virtualized-masonry-async-demo/)
+[online demo](http://chuxdesign.com/playground/react-virtualized-masonry-async-demo/index.html)
 
 ## Modify it your self
 ### 1. Install
