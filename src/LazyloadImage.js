@@ -76,7 +76,7 @@ class LazyloadImage extends Component {
   _onLoad(src) {
     ReadyPool[src] = true
     if (this.mounted && src === this.props.src) {
-      setTimeout(function () {
+      setTimeout(() => {
         this.setState({
           src: src
         }, () => this.props.onLoad())
