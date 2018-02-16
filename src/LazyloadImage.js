@@ -15,7 +15,7 @@ class LazyloadImage extends Component {
     fixedWidth: PropTypes.bool
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       src: null
@@ -24,27 +24,27 @@ class LazyloadImage extends Component {
     this._onLoad = this._onLoad.bind(this)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this._load(this.props.src)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.mounted = true
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.mounted = false
   }
 
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.src !== this.props.src) {
       this.setState({ src: null })
       this._load(nextProps.src)
     }
   }
 
-  _load (src) {
+  _load(src) {
     if (ReadyPool[src]) {
       this.setState({ src: src })
       return
@@ -73,16 +73,18 @@ class LazyloadImage extends Component {
   }
 
 
-  _onLoad (src) {
+  _onLoad(src) {
     ReadyPool[src] = true
     if (this.mounted && src === this.props.src) {
-      this.setState({
-        src: src
-      }, () => this.props.onLoad())
+      setTimeout(function () {
+        this.setState({
+          src: src
+        }, () => this.props.onLoad())
+      }, Math.floor(Math.random() * 1000))
     }
   }
 
-  getStyle () {
+  getStyle() {
     const { defaultWidth, defaultHeight, src: propsSrc, fixedWidth } = this.props
     const { src } = this.state
     if (src === propsSrc && WidthPool[src] && HeightPool[src]) {
@@ -101,7 +103,7 @@ class LazyloadImage extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div style={this.getStyle()} />
     )
