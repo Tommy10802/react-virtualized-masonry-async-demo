@@ -80,7 +80,7 @@ class LazyloadImage extends Component {
         this.setState({
           src: src
         }, () => this.props.onLoad())
-      }, Math.floor(Math.random() * 1000))
+      }, Math.floor(Math.random() * 10000))
     }
   }
 
